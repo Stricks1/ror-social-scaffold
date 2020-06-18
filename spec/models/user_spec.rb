@@ -6,7 +6,8 @@ RSpec.describe User, type: :model do
         user = User.create(email: 'mail@mail.com', name: 'Tester', password: '123456')
         user2 = User.create(email: 'mail2@mail.com', name: 'Tester2', password: '123456')
         user.request_friend(user2)
-        expect(user2.friend_requests.first.id).to be user.id
+      #  expect(user2.friend_requests.first.id).to be user.id
+        expect(user.friend?(user2)).to be user2.friendships
     end
   end
 end
