@@ -6,11 +6,21 @@
         <span class="profile-link">
           <%= link_to 'See Profile',  user_path(user), class: 'profile-link' %>
         </span>
-        <% if current_user.friend?(user) %>
-          <h1>This is a Friend</h1>
-        <% else %>
-          <%= link_to 'whatever', whatever_path(user) %>
-          <h1>Request</h1>
+        <% if current_user != user %>
+          <% if current_user.friend?(user) %>
+            <p>Is your Friend</p>
+          <% else %>
+            <% if current_user.friend_requests.include?(user) %>
+              <%= link_to 'accept', accept_path(user) %>
+              <%= link_to 'reject', reject_path(user) %>
+            <% else %>
+              <% if current_user.pending_friends.include?(user) %>
+                <p>Pending request</p>
+              <% else %>
+                <p><button><%= link_to 'Friend Request', friend_req_path(user) %></button><p>
+              <% end %>
+            <% end %>
+          <% end %>
         <% end %>
       </li>
     <% end %>

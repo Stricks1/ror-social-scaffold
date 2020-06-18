@@ -9,7 +9,9 @@ Rails.application.routes.draw do
     resources :comments, only: [:create]
     resources :likes, only: [:create, :destroy]
   end
-  get 'whatever/:id', to: 'users#whatever', as: 'whatever'
+  get 'frequest/:id', to: 'users#frequest', as: 'friend_req'
+  get 'accept/:id', to: 'users#accept', as: 'accept'
+  get 'reject/:id', to: 'users#reject', as: 'reject'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
