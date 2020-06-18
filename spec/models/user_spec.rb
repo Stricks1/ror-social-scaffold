@@ -44,6 +44,7 @@ RSpec.describe User, type: :model do
     it 'Friend checking' do
       @user.request_friend(@user2)
       @user2.confirm_friend(@user)
+      u1 = User.find(@user.id)
       expect(u1.friend?(@user2)).to be true
     end
   end

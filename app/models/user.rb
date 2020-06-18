@@ -10,26 +10,26 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :friendships
-  has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend_id"
-  
+  has_many :inverse_friendships, class_name: 'Friendship', foreign_key: 'friend_id'
+
   def friends
-    friends_array = friendships.map{|friendship| friendship.friend if friendship.confirmed}
-    friends_array += inverse_friendships.map{|friendship| friendship.user if friendship.confirmed}
+    friends_array = friendships.map { |friendship| friendship.friend if friendship.confirmed }
+    friends_array += inverse_friendships.map { |friendship| friendship.user if friendship.confirmed }
     friends_array.compact
   end
 
   # Users who have yet to confirme friend requests
   def pending_friends
-    friendships.map{|friendship| friendship.friend if !friendship.confirmed}.compact
+    friendships.map { |friendship| friendship.friend unless friendship.confirmed }.compact
   end
 
   # Users who have requested to be friends
   def friend_requests
-    inverse_friendships.map{|friendship| friendship.user if !friendship.confirmed}.compact
-  end  
-  
+    inverse_friendships.map { |friendship| friendship.user unless friendship.confirmed }.compact
+  end
+
   def request_friend(user)
-    return false if relationExist?(user)
+    return false if relation_exist?(user)
 
     friendship = friendships.build
     friendship.friend_id = user.id
@@ -38,13 +38,13 @@ class User < ApplicationRecord
   end
 
   def confirm_friend(user)
-    friendship = inverse_friendships.find{|friendship| friendship.user == user}
+    friendship = inverse_friendships.find { |friend| friend.user == user }
     friendship.confirmed = true
     friendship.save
   end
 
   def reject_friend(user)
-    friendship = inverse_friendships.find{|friendship| friendship.user == user}
+    friendship = inverse_friendships.find { |friend| friend.user == user }
     friendship.destroy
   end
 
@@ -52,7 +52,7 @@ class User < ApplicationRecord
     friends.include?(user)
   end
 
-  def relationExist?(user)
+  def relation_exist?(user)
     friends.include?(user) || pending_friends.include?(user) || friend_requests.include?(user)
   end
 end
