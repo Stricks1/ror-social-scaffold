@@ -35,6 +35,12 @@ a {
   color: $primary-color-text;
 }
 
+.nav a {
+  color: $primary-color-light;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
 .timeline {
   width: 100%;
   margin: 16px 0;
@@ -76,6 +82,7 @@ a {
       font-size: 0.9em;
       margin: 0 4px;
     }
+
     .post-date {
       font-size: 0.6em;
     }
@@ -100,9 +107,10 @@ a {
       padding: 10px;
 
       p {
-        font-size: .8em;
+        font-size: 0.8em;
         width: 90%;
       }
+
       span {
         position: absolute;
         right: 3px;
@@ -110,12 +118,6 @@ a {
       }
     }
   }
-}
-
-.nav a {
-  color: $primary-color-light;
-  text-transform: uppercase;
-  font-weight: 900;
 }
 
 .nav a:hover {
@@ -215,6 +217,23 @@ a {
   }
 }
 
+.users-section {
+  width: 100%;
+  margin: 10px;
+
+  .users-list li {
+    margin-bottom: 16px;
+    text-transform: capitalize;
+    font-size: 1.2em;
+  }
+
+  .profile-link {
+    font-size: 0.8em;
+    margin: 0 0 8px 0;
+    color: $primary-color-dark;
+  }
+}
+
 form {
   width: 80%;
   margin: 8px 0;
@@ -263,7 +282,6 @@ form {
   }
 
   .actions.reset {
-  
     input[type="submit"] {
       width: 100%;
     }
@@ -287,23 +305,6 @@ form {
   text-transform: capitalize;
 }
 
-.users-section {
-  width: 100%;
-  margin: 10px;
-
-  .users-list li {
-    margin-bottom: 16px;
-    text-transform: capitalize;
-    font-size: 1.2em;
-  }
-
-  .profile-link {
-    font-size: 0.8em;
-    margin: 0 0 8px 0;
-    color: $primary-color-dark;
-  }
-}
-
 .user-section {
   width: 100%;
   margin-left: 16px;
@@ -314,9 +315,11 @@ form {
 
   .timeline {
     width: 100%;
+
     h3 {
       width: 100%;
     }
+
     justify-content: start;
   }
 }
