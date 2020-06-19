@@ -24,7 +24,7 @@ RSpec.describe 'Friendship', type: :feature, feature: true do
       expect(page).to have_content('Pending request')   
     end
 
-    scenario 'friend request' do
+    scenario 'friend accept' do
       visit 'http://localhost:3000/users'
       url = 'http://localhost:3000/friendships/'
       url.concat(@user2.id.to_s)
@@ -35,10 +35,27 @@ RSpec.describe 'Friendship', type: :feature, feature: true do
       fill_in 'Password', with: '123456'
       click_on 'Log in'
       visit 'http://localhost:3000/users'
-      click_on 'Accept', match: :first
-      u_1 = User.find(@user.id.to_s)
-      expect(u_1.friends).to include(@user2)
-      expect(page).to have_content('Pending request')   
+      url = 'http://localhost:3000/friendships/'
+      url.concat(@user.id.to_s)
+      page.driver.submit :patch, url, {}
+      expect(@user.friends).to include(@user2)
+    end
+
+    scenario 'friend reject' do
+      visit 'http://localhost:3000/users'
+      url = 'http://localhost:3000/friendships/'
+      url.concat(@user2.id.to_s)
+      visit url
+      click_on 'Sign out'
+      visit 'http://localhost:3000/users/sign_in'
+      fill_in 'Email', with: 'mail2@mail.com'
+      fill_in 'Password', with: '123456'
+      click_on 'Log in'
+      visit 'http://localhost:3000/users'
+      url = 'http://localhost:3000/friendships/'
+      url.concat(@user.id.to_s)
+      page.driver.submit :delete, url, {}
+      expect(@user.pending_friends).to eq([])
     end
 
   end
