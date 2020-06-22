@@ -38,7 +38,7 @@ RSpec.describe 'Friendship', type: :feature, feature: true do
       url = 'http://localhost:3000/friendships/'
       url.concat(@user.id.to_s)
       page.driver.submit :patch, url, {}
-      expect(@user.friends).to include(@user2)
+      expect(page).to have_content('Accepted Friendship')
     end
 
     scenario 'friend reject' do
@@ -55,7 +55,7 @@ RSpec.describe 'Friendship', type: :feature, feature: true do
       url = 'http://localhost:3000/friendships/'
       url.concat(@user.id.to_s)
       page.driver.submit :delete, url, {}
-      expect(@user.pending_friends).to eq([])
+      expect(page).to have_content('Rejected Friendship')
     end
 
   end
