@@ -20,7 +20,10 @@ class PostsController < ApplicationController
   private
 
   def timeline_posts
-    @timeline_posts ||= Post.all.ordered_by_most_recent.includes(:user)
+    us = current_user.friends.map(&:id)
+    us << current_user.id
+    us = us.join(',')
+    @timeline_posts = Post.find_by_sql("SELECT * FROM posts WHERE user_id IN (SELECT id FROM users WHERE id IN(#{us})) ORDER BY created_at")
   end
 
   def post_params
