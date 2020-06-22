@@ -10,7 +10,7 @@ RSpec.describe 'Friendship', type: :feature, feature: true do
       fill_in 'Password', with: '123456'
       click_on 'Log in'
     end
-    
+
     scenario 'log_in valid' do
       expect(page).to have_content('Signed in successfully.')
     end
@@ -21,7 +21,7 @@ RSpec.describe 'Friendship', type: :feature, feature: true do
       url.concat(@user2.id.to_s)
       visit url
       expect(@user.pending_friends).to include(@user2)
-      expect(page).to have_content('Pending request')   
+      expect(page).to have_content('Pending request')
     end
 
     scenario 'friend accept' do
@@ -57,6 +57,5 @@ RSpec.describe 'Friendship', type: :feature, feature: true do
       page.driver.submit :delete, url, {}
       expect(page).to have_content('Rejected Friendship')
     end
-
   end
 end

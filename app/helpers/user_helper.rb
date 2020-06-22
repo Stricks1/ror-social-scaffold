@@ -1,12 +1,17 @@
 module UserHelper
   def user_friend_request(user)
     if current_user.friend_requests.include?(user)
-      ('<p><button>' + (link_to 'Accept', friendship_path(user), method: :patch ) + '</button> <button>' + (link_to 'Reject', friendship_path(user), method: :delete) + '</button><p>').html_safe
+      cntnt = "<p><button>"
+      cntnt.concat(link_to 'Accept', friendship_path(user), method: :patch)
+      cntnt.concat("</button> <button>")
+      cntnt.concat(link_to 'Reject', friendship_path(user), method: :delete)
+      cntnt.concat("</button><p>")
+      cntnt.html_safe
     else
       pending_request(user)
     end
   end
-  
+
   def user_friend(user)
     if current_user.friend?(user)
       'Is you friend'
