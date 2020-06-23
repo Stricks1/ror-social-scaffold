@@ -3,7 +3,7 @@ class PostsController < ApplicationController
 
   def index
     @post = Post.new
-    timeline_posts
+    @timeline_posts = @post.timeline_posts(current_user)
   end
 
   def create
@@ -18,15 +18,6 @@ class PostsController < ApplicationController
   end
 
   private
-
-  def timeline_posts
-    us = current_user.friends.map(&:id)
-    us << current_user.id
-    us = us.join(',')
-    first_part = 'SELECT * FROM posts WHERE user_id IN'
-    @timeline_posts = Post.find_by_sql("#{first_part} (SELECT id FROM users WHERE id IN(#{us})) ORDER BY created_at")
-  end
-
   def post_params
     params.require(:post).permit(:content)
   end
