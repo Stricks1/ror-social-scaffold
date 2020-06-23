@@ -9,7 +9,7 @@
 
 ## Live Demo
 
-TBA
+https://immense-cliffs-10071.herokuapp.com/
 
 
 ## Getting Started
@@ -63,7 +63,18 @@ TBA
 
 ## Authors
 
-TBA
+
+👤 **Author1**
+
+- Github: [@Stricks1](https://github.com/Stricks1)
+- E-mail: [Gabriel Silveira](mailto:gmalheiross@gmail.com)
+- Linkedin: [Gabriel Silveira](https://linkedin.com/in/gabriel-malheiros-silveira-b6632061/)
+
+
+👤 **Author2**
+
+- Github: [@queeksm](https://github.com/queeksm)
+- E-mail: [Andres Felipe Perez](mailto:queeksm@gmail.com)
 
 ## 🤝 Contributing
 
