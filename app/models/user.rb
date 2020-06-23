@@ -53,6 +53,6 @@ class User < ApplicationRecord
   end
 
   def relation_exist?(user)
-    friends.include?(user) || pending_friends.include?(user) || friend_requests.include?(user)
+    friends.include?(user) || pending_friends.include?(user) || friend_requests.include?(user) || user == self
   end
 end

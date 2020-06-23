@@ -47,5 +47,9 @@ RSpec.describe User, type: :model do
       u1 = User.find(@user.id)
       expect(u1.friend?(@user2)).to be true
     end
+
+    it 'Friend yourself' do
+      expect(@user.relation_exist?(@user)).to be true
+    end
   end
 end
