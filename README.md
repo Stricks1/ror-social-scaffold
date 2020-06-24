@@ -59,7 +59,7 @@ Open `http://localhost:3000/` in your browser.
 
 ### Deployment
 
-TBA
+It was deployed with Heroku you can access [here](https://immense-cliffs-10071.herokuapp.com/)
 
 ## Authors
 
@@ -88,9 +88,9 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-TBA
+ - Project from Microverse. We forked this initial scaffold repository [click here](https://github.com/microverseinc/ror-social-scaffold) and implemented the friendship model and functionality.
 
 ## 📝 License
 
-TBA
+This project is MIT licensed.
 
