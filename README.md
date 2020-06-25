@@ -9,7 +9,7 @@
 
 ## Live Demo
 
-TBA
+https://immense-cliffs-10071.herokuapp.com/
 
 
 ## Getting Started
@@ -59,11 +59,22 @@ Open `http://localhost:3000/` in your browser.
 
 ### Deployment
 
-TBA
+It was deployed with Heroku you can access [here](https://immense-cliffs-10071.herokuapp.com/)
 
 ## Authors
 
-TBA
+
+👤 **Author1**
+
+- Github: [@Stricks1](https://github.com/Stricks1)
+- E-mail: [Gabriel Silveira](mailto:gmalheiross@gmail.com)
+- Linkedin: [Gabriel Silveira](https://linkedin.com/in/gabriel-malheiros-silveira-b6632061/)
+
+
+👤 **Author2**
+
+- Github: [@queeksm](https://github.com/queeksm)
+- E-mail: [Andres Felipe Perez](mailto:queeksm@gmail.com)
 
 ## 🤝 Contributing
 
@@ -77,9 +88,9 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-TBA
+ - Project from Microverse. We forked this initial scaffold repository [click here](https://github.com/microverseinc/ror-social-scaffold) and implemented the friendship model and functionality.
 
 ## 📝 License
 
-TBA
+This project is MIT licensed.
 
